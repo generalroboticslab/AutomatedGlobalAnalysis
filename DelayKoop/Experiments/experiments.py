@@ -45,6 +45,7 @@ class HyperOpt_StdAnneal(BaseExperiment):
         self.objective = None
         self.total_epochs = self.pretrain_epochs + self.main_epochs
         self.lr = params['lr']
+        self.HodHux = params['HodHux']
        
     def setup(self):
         """
@@ -66,7 +67,8 @@ class HyperOpt_StdAnneal(BaseExperiment):
         )
 
         data_p = cm.data_params(n_delays=self.n_delays,
-                             n_states=self.n_states
+                             n_states=self.n_states,
+                             HodHux=self.HodHux
         )
 
         training_p = cm.training_params(learning_rate=self.lr,
@@ -194,6 +196,7 @@ class HyperOpt_StdAnneal_LR(BaseExperiment):
         self.find_lr = find_lr
         self.lr = params['lr']
         self.min_lr = params['min_lr']
+        self.HodHux = params['HodHux']
                                              
     def setup(self):
         """
@@ -216,6 +219,7 @@ class HyperOpt_StdAnneal_LR(BaseExperiment):
 
         data_p = cm.data_params(n_delays=self.n_delays,
                              n_states=self.n_states,
+                             HodHux=self.HodHux
         )
 
 

@@ -25,8 +25,8 @@ dropout_rate: dropout rate (default: None)
 
 """
 
-data_params = ['n_delays', 'n_states', 'delta_t']
-data_defaults = [15, 2, .02]
+data_params = ['n_delays', 'n_states', 'delta_t', 'HodHux']
+data_defaults = [15, 2, .02, False]
 data_params = namedtuple("data_params", field_names=data_params, defaults=data_defaults)
 """
 This is a namedtuple containing the parameters for the data
@@ -35,6 +35,8 @@ Args:
 
 n_delays: number of delays in the system (default: 15)
 n_states: number of states in the system (default: 2)
+delta_t: time step (default: .02)
+HodHux: whether or not the dataset is the Hodgkin-Huxley model (default: False)
 
 """
 

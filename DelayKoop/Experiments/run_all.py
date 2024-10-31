@@ -379,7 +379,7 @@ if __name__ == "__main__":
 
         #exp = HyperOpt_StdAnneal_LR(params=params)
         #runner.add_experiment(exp)
-        
+
         
         ##### ---------- Lorenz 96 Chaotic ---------- #####
 
@@ -416,7 +416,35 @@ if __name__ == "__main__":
         #exp = HyperOpt_StdAnneal_LR(params=params)
         #runner.add_experiment(exp)
 
+        ##### ---------- Hodgkin-Huxley Model ---------- #####
+
+        params = params_default
+        params['n_trials'] = 12
+        params['sampler'] = 'tpe'
+        params['data_path'] = "./Data/Hodhux_path"
+        params['n_delays'] = 50
+        params['gpu_idx'] = 0
+        params['train_horizon'] = 450
+        params['val_horizon'] = 500
+        params['downsample_fctr'] = 2
+        params['main_epochs'] = 105
+        params['pretrain_epochs'] = 5
+        params['batch_size'] = 1000
+        params['lr'] = 3e-3
+        params['latent_dim'] = 2
+        params['HodHux'] = True
+        params['experiment_name'] = '2-dim'
 
 
+        #exp = HyperOpt_StdAnneal_LR(params=params)
+        #runner.add_experiment(exp)
+
+        params['latent_dim'] = 3
+        params['experiment_name'] = '3-dim'
+
+        #exp = HyperOpt_StdAnneal_LR(params=params)
+        #runner.add_experiment(exp)
+
+        
         runner.run_all()
 

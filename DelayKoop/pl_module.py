@@ -115,7 +115,7 @@ class DelayKoop(LightningModule):
             J_t0 = J_t0[:, :, ::self.n_delays]
             fx_t0 = fx_t0[:, ::self.n_delays]
 
-        # Multiply the Jacobian by the inital dynamics (velocity and accel) for the other chain rule loss term
+        # Multiply the Jacobian by the initial dynamics (velocity and accel) for the other chain rule loss term
         outputs['J_dot_fx_t0'] = torch.bmm(J_t0, fx_t0.unsqueeze(-1)).squeeze(-1)
     
         # predict future embeddings with forward integration in time
@@ -163,7 +163,10 @@ class DelayKoop(LightningModule):
         x_tn = x_tn[:, ::self.n_delays, :]
 
         # compute the reconstruction loss
-        recon_loss = F.mse_loss(x_t0, x_t0_hat)
+        if self.HodHux:
+            recon_loss = self.mahalanobis_mse_loss(x_t0, x_t0_hat)
+        else:
+            recon_loss = F.mse_loss(x_t0, x_t0_hat)
 
         # get the ground truth future embeddings
         psi_tn = preds['psi_tn']
@@ -176,7 +179,10 @@ class DelayKoop(LightningModule):
 
         # Long term prediction loss in state space
         x_tn_hat = preds['x_tn_hat']
-        state_space_loss = self.discounted_mse(x_tn, x_tn_hat)
+        if self.HodHux:
+            state_space_loss = self.discounted_mahalanobis_mse_loss(x_tn, x_tn_hat)
+        else:
+            state_space_loss = self.discounted_mse(x_tn, x_tn_hat)
 
         full_state_space_loss = F.mse_loss(x_tn, x_tn_hat)
         
@@ -292,7 +298,7 @@ class DelayKoop(LightningModule):
         dsct_loss = torch.mean(weights * torch.square(y_true - y_pred))
         return dsct_loss
     
-    def discounted_mahalanobis_mse_loss(self, input, target):
+    def discounted_mahalanobis_mse_loss(self, target, input):
         """
         Computes the discounted Mahalanobis MSE loss between (arbitrary named) y_true and y_pred along the 3rd dimension (time)
 
@@ -304,10 +310,10 @@ class DelayKoop(LightningModule):
         """   
         n_steps = input.shape[2]
         weights = self.gamma ** torch.arange(n_steps, dtype=torch.float32).to(input.device)
-        dsct_loss = torch.mean(weights * self.mahalanobis_mse_loss(input, target))
+        dsct_loss = torch.mean(weights * self.mahalanobis_mse_loss(target, input))
         return dsct_loss
 
-    def mahalanobis_mse_loss(input, target):
+    def mahalanobis_mse_loss(self, target, input):
         # Calculate the variance along the feature dimension of the target
         variance = torch.var(target, dim=0, unbiased=False)
         
