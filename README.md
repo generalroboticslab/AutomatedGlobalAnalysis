@@ -6,7 +6,7 @@
 Duke University
 <br>
 ## Overview
-Dynamical systems theory helps scientists and engineers understand changing phenomena in every corner of study. However, applying this theoretical framework to understand real world systems remains challenging. This difficulty arises, in part, from issues in mathematical modeling, nonlinearity, and dimensionality. Our work addresses these challenges with a computational pipeline based on deep learning to find low-dimensional linear models for nonlinear dynamics directly from experimental data. Moreover, these new linear models possess a structure that can be easily interpreted and exploited to perform global analysis of the system’s stability behavior. To find these models, our framework uses time-delay embedding, physics-informed deep autoencoders, and annealing-based regularization. With our method, we discover new, low-dimensional, coordinate representations for a wide range of simulated and previously unstudied experimental dynamical systems across scientific fields. We show that these new coordinate representations, for all studied systems,  achieve accurate long-horizon predictions and automatically uncover intricate invariant sets while providing empirical stability guarantees.
+Dynamical systems theory has long provided a foundation for understanding evolving phenomena across scientific domains. Yet, the application of this theory to complex real-world systems remains challenging due to issues in mathematical modeling, nonlinearity, and high dimensionality. In this work, we introduce a data-driven computational framework to derive low-dimensional linear models for nonlinear dynamical systems directly from raw experimental data. This framework enables global stability analysis through interpretable linear models that capture the underlying system structure. Our approach employs time-delay embedding, physics-informed deep autoencoders, and annealing-based regularization to identify novel low-dimensional coordinate representations, unlocking insights across a variety of simulated and previously unstudied experimental dynamical systems. These new coordinate representations enable accurate long-horizon predictions and automatic identification of intricate invariant sets while providing empirical stability guarantees. Our method offers a promising pathway to analyze complex dynamical behaviors across fields such as physics, climate science, and engineering, with broad implications for understanding nonlinear systems in the real world.
 <div style="text-align: center;">
   <img src="./DelayKoop/linearization.gif" alt="Linearization" width="600">
 </div>
@@ -17,6 +17,37 @@ Dynamical systems theory helps scientists and engineers understand changing phen
 - [Logging](#logging)
 - [Citation](#citation)
 - [Acknowledgements](#acknowledgements)
+## Prerequisites
+### Dependencies
+
+Install the required packages:
+
+```bash
+pip install -r requirements.txt
+```
+### Datasets
+Make a directory called `Data` in the root directory of the repository.
+```bash
+mkdir Data
+```
+The datasets are saved in here as:
+```
+ Data\{dataset_name}
+```
+You can generate your own simulated datasets by using the GenerateDataset class in generate_datasets.py after providing the config path.
+```
+    config_yaml_path = './DelayKoop/Datasets/Configs/lorenz_96_configs.yaml'
+    dataset = GenerateDataset(config_yaml_path)
+    dataset.collect_data()
+```
+The experimental datasets are directly provided in this repository as CSVs. You can process and save the datasets in the `Data` dir by running
+``` bash
+python -m DelayKoop.Datasets.process_doub_pend
+python -m DelayKoop.Datasets.process_mag_pend
+```
+You can also download the simulated datasets from the following link:
+- [Data](url)
+
 ## Logging
 The logs are saved in the `logs` folder. The logs are saved in the following format:
 ```

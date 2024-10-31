@@ -140,33 +140,4 @@ def windowed_trajectory(trajectory, window_size):
     return windowed
 
 if __name__ == '__main__':
-    #main()
-
-    dat = np.load('/Users/Sam/Documents/LLLD-V3/Latent-Linear-Dynamics/Data/auto-mag-pend-1000traj-0.02dt-10tf-31delay.npy')
-
-    # plot the first trajectory
-    plt.plot(dat[0, 0, :, -1])
-    plt.show()
-
-
-     # Generate a random sample without replacement
-    #idx = np.random.choice(range(0, 600), 80, replace=False)
-
-    # Save the numbers to a text file
-    #with open('/home/sam221/DeepDelayKoopman/DelayKoop/Datasets/Experimental_Data/single_pend_test_indices.txt', 'w') as file:
-    #    for number in idx:
-    #        file.write(str(number) + '\n')
-
-    #dat = np.load('/home/sam221/DeepDelayKoopman/Data/mag-pend-580traj-0.02dt-45tf-81delay.npy')
-
-    #test_data = dat[:,:,:, idx]
-    
-    #mask = np.ones(dat.shape[-1], dtype=bool)
-    #mask[idx] = False
-    #train_data = dat[:, :, :, mask]
-
-    #np.save(f'./Data/train-mag-pend-{580-65}traj-{0.02}dt-{45}tf-{81}delay', train_data)
-    #np.save(f'./Data/test-mag-pend-{65}traj-{0.02}dt-{45}tf-{81}delay', test_data)
-
-
-    #dat = np.load('./Data/mag-pend-503traj-0.02dt-45.02tf-61delay.npy')
+    main()
