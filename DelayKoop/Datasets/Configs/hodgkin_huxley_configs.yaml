@@ -1,0 +1,11 @@
+model_name: hodgkin_huxley
+n_states: 4
+delay_type: dt
+delay_steps: 51
+step_size: 0.04
+noise_std: 0
+n_trajectories: 50
+trajectory_length: 1100
+sim_time: 80
+sample_bounds: [-10, -30, 10, 30]
+data_dir: ./Data/Hodgkin_Huxley_Sim

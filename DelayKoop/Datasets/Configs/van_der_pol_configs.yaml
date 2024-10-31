@@ -1,0 +1,11 @@
+model_name: van_der_pol
+n_states: 2
+delay_type: dt
+delay_steps: 20
+step_size: 0.05
+noise_std: 0
+n_trajectories: 400
+trajectory_length: 900
+sim_time: 100
+sample_bounds: [0, 0, 0, 0]
+data_dir: ./Data/Van_Der_Pol_Sim

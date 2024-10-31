@@ -1,0 +1,11 @@
+model_name: double_lco
+n_states: 2
+delay_type: dt
+delay_steps: 20
+step_size: 0.05
+noise_std: 0
+n_trajectories: 600
+trajectory_length: 1000
+sim_time: 100
+sample_bounds: [0, 0, 0, 0]
+data_dir: ./Data/Double_LCO_Sim

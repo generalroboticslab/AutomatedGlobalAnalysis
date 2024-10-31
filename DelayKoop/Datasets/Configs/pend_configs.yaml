@@ -1,0 +1,11 @@
+model_name: pend
+n_states: 2
+delay_type: dt
+delay_steps: 22
+step_size: 0.05
+noise_std: 0
+n_trajectories: 300
+trajectory_length: 1000
+sim_time: 100
+sample_bounds: [-3.14, 0, 3.14, 0]
+data_dir: ./Data/Pendulum_Sim

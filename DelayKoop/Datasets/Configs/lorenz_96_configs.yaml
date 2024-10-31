@@ -1,0 +1,11 @@
+model_name: lorenz_96
+n_states: 40
+delay_type: dt
+delay_steps: 20
+step_size: 0.05
+noise_std: 0
+n_trajectories: 100
+trajectory_length: 500
+sim_time: 50
+sample_bounds: [0, 0, 0, 0]
+data_dir: ./Data/Lorenz_96_Sim

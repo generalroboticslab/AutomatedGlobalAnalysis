@@ -1,0 +1,11 @@
+model_name: duffing
+n_states: 2
+delay_type: dt
+delay_steps: 21
+step_size: 0.05
+noise_std: 0
+n_trajectories: 1000
+trajectory_length: 800
+sim_time: 100
+sample_bounds: [-5, -12, 5, 12]
+data_dir: ./Data/Duffing_Sim

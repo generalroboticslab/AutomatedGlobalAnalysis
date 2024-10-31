@@ -1,0 +1,11 @@
+model_name: linear_magnet_model
+n_states: 2
+delay_type: dt
+delay_steps: 41
+step_size: 0.04
+noise_std: 0
+n_trajectories: 800
+trajectory_length: 1000
+sim_time: 100
+sample_bounds: [-10, -30, 10, 30]
+data_dir: ./Data/Linear_Magnet_Sim
