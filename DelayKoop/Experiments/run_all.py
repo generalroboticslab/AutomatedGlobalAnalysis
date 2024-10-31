@@ -10,7 +10,7 @@ params_default = {'experiment_name': 'Experiment',
                     'n_delays': 20,
                     'n_trials': 100,
                     'accelerator': 'gpu',
-                    'gpu_idx': None,
+                    'gpu_idx': 0,
                     'batch_size': 256,
                     'min_lr': 3e-4,
                     'pretrain_epochs': 5,
@@ -24,7 +24,9 @@ params_default = {'experiment_name': 'Experiment',
                     'encoder_hidden_layers': 3,
                     'decoder_hidden_layers': 3,
                     'dropout': 0.001,
-                    'full_jacobian': True
+                    'full_jacobian': True,
+                    'sampling': 'tpe',
+                    'lr': 3e-3
                     }
 
 if __name__ == "__main__":
@@ -126,23 +128,22 @@ if __name__ == "__main__":
         ##### ---------- Lorenz 96 Periodic ---------- #####``
         params = params_default
         params['n_trials'] = 12
-        params['sampler'] = 'tpe'
-        params['data_path'] = "/Data/Lorenz_96_Sim/lorenz_96_delaytype-dt_delaysteps-20_stepsize-0.05_noise-0_ntraj-400_trajlen-500.npy"
+        params['data_path'] = "./Data/Lorenz_96_Sim/lorenz_96_delaytype-dt_delaysteps-20_stepsize-0.05_noise-0_ntraj-400_trajlen-500.npy"
         params['latent_dim'] = 2
         params['n_delays'] = 20
-        params['gpu_idx'] = 0
         params['train_horizon'] = 220
         params['val_horizon'] = 270
         params['downsample_fctr'] = 2
         params['batch_size'] = 128
         params['main_epochs'] = 100
         params['n_states'] = 40
-        params['full_jacobian'] = True
-        params['experiment_name'] = 'lorenz-96-2dim'
+        params['experiment_name'] = '2dim'
         params['lr'] = 1e-3
 
-        #exp = HyperOpt_StdAnneal_LR(params=params)
-        #runner.add_experiment(exp)
+        runner = ExperimentRunner()
+        exp = HyperOpt_StdAnneal_LR(params=params)
+        runner.add_experiment(exp)
+        runner.run_all()
 
         params['latent_dim'] = 3
         params['experiment_name'] = 'lorenz-96-3dim'
@@ -445,6 +446,6 @@ if __name__ == "__main__":
         #exp = HyperOpt_StdAnneal_LR(params=params)
         #runner.add_experiment(exp)
 
-        
+
         runner.run_all()
 
