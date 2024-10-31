@@ -193,6 +193,7 @@ class HyperOpt_StdAnneal_LR(BaseExperiment):
         self.total_epochs = self.pretrain_epochs + self.main_epochs
         self.find_lr = find_lr
         self.lr = params['lr']
+        self.min_lr = params['min_lr']
                                              
     def setup(self):
         """
@@ -228,7 +229,7 @@ class HyperOpt_StdAnneal_LR(BaseExperiment):
             state_pred_ratio = lat_pred_ratio #trial.suggest_float("state_pred_ratio", 0.2, .8)
             gamma_ratio = trial.suggest_float("gamma_ratio", 0.5, .9)
             mu_ratio = trial.suggest_float("mu_ratio", 0.2, .8)
-            lr = trial.suggest_float("lr", 3e-4, self.lr)
+            lr = trial.suggest_float("lr", self.min_lr, self.lr)
 
             print(f"chain_rule_ratio: {chain_rule_ratio}")
             print(f"lat_pred_ratio: {lat_pred_ratio}")
