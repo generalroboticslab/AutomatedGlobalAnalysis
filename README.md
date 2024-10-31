@@ -71,7 +71,7 @@ runner.add_experiment(exp)
 runner.run_all()
 ```
 ## Logging
-The logs are saved in the `logs` folder. The logs are saved in the following format:
+The logs are saved in the `logs` folder in the following format:
 ```
  logs\{dataset_name}_{experiment_name}_{seed}
 ```
