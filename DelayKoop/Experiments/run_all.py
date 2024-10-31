@@ -41,7 +41,7 @@ if __name__ == "__main__":
         params = params_default
         params['n_trials'] = 12
         params['sampler'] = 'tpe'
-        params['data_path'] = "/home/sam221/LatentLinearDynamics/Latent-Linear-Dynamics/Data/Linear_Magnet_c08_Sim/linear_magnet_model_delaytype-dt_delaysteps-41_stepsize-0.04_noise-0_ntraj-800_trajlen-1000.npy"
+        params['data_path'] = "./Data/linear_magnet_model_delaytype-dt_delaysteps-41_stepsize-0.04_noise-0_ntraj-800_trajlen-1000.npy"
         params['latent_dim'] = 2
         params['n_delays'] = 41
         params['gpu_idx'] = 0
@@ -85,7 +85,7 @@ if __name__ == "__main__":
         params = params_default
         params['n_trials'] = 12
         params['sampler'] = 'tpe'
-        params['data_path'] = "/home/sam221/LatentLinearDynamics/Latent-Linear-Dynamics/Data/Linear_Magnet_c05_Sim/linear_magnet_model_delaytype-dt_delaysteps-41_stepsize-0.04_noise-0_ntraj-800_trajlen-1000.npy"
+        params['data_path'] = "./Data/Linear_Magnet_Sim/linear_magnet_model_delaytype-dt_delaysteps-41_stepsize-0.04_noise-0_ntraj-800_trajlen-1000.npy"
         params['n_delays'] = 41
         params['gpu_idx'] = 0
         params['train_horizon'] = 400
@@ -131,7 +131,7 @@ if __name__ == "__main__":
         params = params_default
         params['n_trials'] = 12
         params['sampler'] = 'tpe'
-        params['data_path'] = "/home/sam221/Latent-Linear-Dynamics/Data/Pendulum_Sim_Single_Basin/pend_delaytype-dt_delaysteps-22_stepsize-0.05_noise-0_ntraj-800_trajlen-800.npy"
+        params['data_path'] = "./Data/Pendulum_Sim/pend_delaytype-dt_delaysteps-22_stepsize-0.05_noise-0_ntraj-800_trajlen-800.npy"
         params['latent_dim'] = 2
         params['n_delays'] = 22
         params['gpu_idx'] = 0
@@ -164,99 +164,11 @@ if __name__ == "__main__":
         #runner.add_experiment(exp)
 
 
-        params = params_default
-        params['n_trials'] = 12
-        params['sampler'] = 'tpe'
-        params['data_path'] = "/home/sam221/Latent-Linear-Dynamics/Data/Pendulum_Sim_Multiple_Basins/pend_delaytype-dt_delaysteps-22_stepsize-0.05_noise-0_ntraj-1400_trajlen-800.npy"
-        params['latent_dim'] = 2
-        params['n_delays'] = 22
-        params['gpu_idx'] = 0
-        params['train_horizon'] = 400
-        params['val_horizon'] = 450
-        params['downsample_fctr'] = 2
-        params['batch_size'] = 2400
-        params['main_epochs'] = 100
-        params['experiment_name'] = 'pend-MB-2dim-NEW'
-        params['full_jacobian'] = True
-        params['lr'] = 3e-3
-
-        #exp = HyperOpt_StdAnneal_LR(params=params)
-        #runner.add_experiment(exp)
-
-        params['latent_dim'] = 3
-        params['experiment_name'] = 'pend-MB-3dim-NEW'
-        #exp = HyperOpt_StdAnneal_LR(params=params)
-        #runner.add_experiment(exp)
-
-        params['latent_dim'] = 4
-        params['experiment_name'] = 'pend-MB-4dim-NEW'
-        #exp = HyperOpt_StdAnneal_LR(params=params)
-        #runner.add_experiment(exp)
-
-        params['latent_dim'] = 5
-        params['experiment_name'] = 'pend-MB-5dim-NEW'
-        #exp = HyperOpt_StdAnneal_LR(params=params)
-        #runner.add_experiment(exp)
-
-        params['latent_dim'] = 7
-        params['experiment_name'] = 'pend-MB-7dim'
-        #exp = HyperOpt_StdAnneal_LR(params=params)
-        #runner.add_experiment(exp)
 
         params = params_default
         params['n_trials'] = 12
         params['sampler'] = 'tpe'
-        params['data_path'] = "/home/sam221/Latent-Linear-Dynamics/Data/Tristable_Sim/tri_stable_dynamics_delaytype-dt_delaysteps-65_stepsize-0.01_noise-0_ntraj-750_trajlen-2000.npy"
-        params['latent_dim'] = 2
-        params['n_delays'] = 65
-        params['gpu_idx'] = 0
-        params['train_horizon'] = 800
-        params['val_horizon'] = 850
-        params['downsample_fctr'] = 3
-        params['batch_size'] = 1000
-        params['main_epochs'] = 100
-        params['experiment_name'] = 'tristable-2dim'
-        params['lr'] = 3e-3
-
-        #exp = HyperOpt_StdAnneal_LR(params=params)
-        #runner.add_experiment(exp)
-
-        params['latent_dim'] = 3
-        params['experiment_name'] = 'tristable-3dim'
-        #exp = HyperOpt_StdAnneal_LR(params=params)
-        #runner.add_experiment(exp)
-
-        params['latent_dim'] = 4
-        params['experiment_name'] = 'tristable-4dim'
-        #exp = HyperOpt_StdAnneal_LR(params=params)
-        #runner.add_experiment(exp)
-
-        params['latent_dim'] = 5
-        params['experiment_name'] = 'tristable-5dim'
-        #exp = HyperOpt_StdAnneal_LR(params=params)
-        #runner.add_experiment(exp)
-
-        params['latent_dim'] = 6
-        params['experiment_name'] = 'tristable-6dim'
-        #exp = HyperOpt_StdAnneal_LR(params=params)
-        #runner.add_experiment(exp)
-
-
-        params['latent_dim'] = 7
-        params['experiment_name'] = 'tristable-7dim'
-        #exp = HyperOpt_StdAnneal_LR(params=params)
-        #runner.add_experiment(exp)
-
-        params['latent_dim'] = 8
-        params['experiment_name'] = 'tristable-8dim'
-        #exp = HyperOpt_StdAnneal_LR(params=params)
-        #runner.add_experiment(exp)
-
-
-        params = params_default
-        params['n_trials'] = 12
-        params['sampler'] = 'tpe'
-        params['data_path'] = "/home/sam221/Latent-Linear-Dynamics/Data/Lorenz_96_Sim/lorenz_96_delaytype-dt_delaysteps-20_stepsize-0.05_noise-0_ntraj-400_trajlen-500.npy"
+        params['data_path'] = "/Data/Lorenz_96_Sim/lorenz_96_delaytype-dt_delaysteps-20_stepsize-0.05_noise-0_ntraj-400_trajlen-500.npy"
         params['latent_dim'] = 2
         params['n_delays'] = 20
         params['gpu_idx'] = 0
@@ -356,7 +268,7 @@ if __name__ == "__main__":
         params = params_default
         params['n_trials'] = 12
         params['sampler'] = 'tpe'
-        params['data_path'] = "/home/sam221/Latent-Linear-Dynamics/Data/Duffing_Sim/duffing_delaytype-dt_delaysteps-21_stepsize-0.05_noise-0_ntraj-600_trajlen-1000.npy"
+        params['data_path'] = "./Data/Duffing_Sim/duffing_delaytype-dt_delaysteps-21_stepsize-0.05_noise-0_ntraj-600_trajlen-1000.npy"
         params['latent_dim'] = 2
         params['n_delays'] = 21
         params['gpu_idx'] = 0
@@ -401,7 +313,7 @@ if __name__ == "__main__":
         params = params_default
         params['n_trials'] = 12
         params['sampler'] = 'tpe'
-        params['data_path'] = "/home/sam221/Latent-Linear-Dynamics/Data/Van_Der_Pol_Sim/van_der_pol_delaytype-dt_delaysteps-20_stepsize-0.05_noise-0_ntraj-400_trajlen-900.npy"
+        params['data_path'] = "./Data/Van_Der_Pol_Sim/van_der_pol_delaytype-dt_delaysteps-20_stepsize-0.05_noise-0_ntraj-400_trajlen-900.npy"
         params['latent_dim'] = 2
         params['n_delays'] = 20
         params['gpu_idx'] = 0
@@ -438,7 +350,7 @@ if __name__ == "__main__":
         params = params_default
         params['n_trials'] = 12
         params['sampler'] = 'tpe'
-        params['data_path'] = "/home/sam221/Latent-Linear-Dynamics/Data/Double_LCO_Sim/double_lco_delaytype-dt_delaysteps-20_stepsize-0.05_noise-0_ntraj-600_trajlen-1000.npy"
+        params['data_path'] = "./Data/Double_LCO_Sim/double_lco_delaytype-dt_delaysteps-20_stepsize-0.05_noise-0_ntraj-600_trajlen-1000.npy"
         params['latent_dim'] = 2
         params['n_delays'] = 20
         params['gpu_idx'] = 0
@@ -476,7 +388,7 @@ if __name__ == "__main__":
         #params = params_default
         #params['n_trials'] = 25
         #params['sampler'] = 'tpe'
-        #params['data_path'] = "/home/sam221/DeepDelayKoopman/Data/pend-800traj-0.05dt-40tf-1delay.npy"
+        #params['data_path'] = "./Data/pend-800traj-0.05dt-40tf-1delay.npy"
         #params['latent_dim'] = 3
         #params['n_delays'] = 1
         #params['experiment_name'] = '3dim-lr_tuning'
@@ -527,7 +439,7 @@ if __name__ == "__main__":
         #params = params_default
         #params['n_trials'] = 30
         #params['sampler'] = 'tpe'
-        #params['data_path'] = "/home/sam221/DeepDelayKoopman/Data/train-exp-doub-pend-785traj-0.02dt-26tf-100delay.npy"
+        #params['data_path'] = "./Data/train-exp-doub-pend-785traj-0.02dt-26tf-100delay.npy"
         #params['latent_dim'] = 9
         #params['n_delays'] = 100
         #params['experiment_name'] = '9dim'
@@ -589,64 +501,15 @@ if __name__ == "__main__":
         #exp = DoublePend_HyperOpt_LRTune(params=params)
         #runner.add_experiment(exp)
 
-
-        #### Testing Siren ####
-        #params = params_default
-        #params['n_trials'] = 25
-        #params['sampler'] = 'random'
-        #params['latent_dim'] = 40
-        #params['experiment_name'] = '40dim-Siren'
-        #params['data_path'] = "/home/sam221/DeepDelayKoopman/Data/doub-pend-2000traj-0.025dt-30tf-24delay.npy"
-        #params['n_delays'] = 24
-
-        #exp = DoublePend_HyperOpt_Siren(params=params)
-        #runner.add_experiment(exp)
         
-        
-        ##### ---------- Duffing ---------- #####
-
-        #params = params_default
-        #params['n_trials'] = 25
-        #params['sampler'] = 'random'
-        #params['latent_dim'] = 5
-        #params['experiment_name'] = '5dim'
-        #params['data_path'] = "/home/sam221/DeepDelayKoopman/Data/large-amp-duffing-500traj-0.05dt-50tf-21delay.npy"
-        #params['n_delays'] = 21
-
-        #exp = Duffing_Run(params=params)
-        #runner.add_experiment(exp)
-
-        #exp = Duffing_NoAnnealing(params=params)
-        #runner.add_experiment(exp)
-
-        #exp = Duffing_StdAnnealing(params=params)
-        #runner.add_experiment(exp)
-
-        #exp = Duffing_CyclicAnnealing(params=params)
-        #runner.add_experiment(exp)
-
-        #runner.run_all()
-
-        ##### ---------- Linear Magnet ---------- #####
-
-        #params = params_default
-        #params['n_trials'] = 100
-        #params['sampler'] = 'tpe'
-        #params['latent_dim'] = 5
-        #params['experiment_name'] = 'hyperopt_tuning'
-        #params['data_path'] = "/home/sam221/DeepDelayKoopman/Data/magnet-large_amp-750traj-0.04dt-40tf-41delay.npy"
-        #params['n_delays'] = 41
-
-        #exp = LinearMagnet_HyperOpt(params=params)
-        #runner.add_experiment(exp)
 
 
-        ##### ---------- Lorenz 96 ---------- #####
+        ##### ---------- Lorenz 96 Chaotic ---------- #####
 
         #params = params_default
         #params['n_trials'] = 30
         #params['sampler'] = 'tpe'
-        #params['data_path'] = "/home/sam221/DeepDelayKoopman/Data/data-lorenz-96-1250traj-0.02dt-20tf-41delay.npy"
+        #params['data_path'] = "./Data/data-lorenz-96-1250traj-0.02dt-20tf-41delay.npy"
         #params['latent_dim'] = 400
         #params['n_delays'] = 41
         #params['experiment_name'] = '400dim'

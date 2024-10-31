@@ -169,3 +169,25 @@ def windowed_trajectory(trajectory, window_size):
 
 if __name__ == '__main__':
     main()
+
+    dat = np.load('./Data/exp-doub-pend-875traj-0.02dt-26tf-100delay.npy')
+
+     # Generate a random sample without replacement
+    idx = np.random.choice(range(0, 875), 90, replace=False)
+
+    # Save the numbers to a text file
+    with open('./DelayKoop/Datasets/Experimental_Data/double_pend_test_indices.txt', 'w') as file:
+        for number in idx:
+            file.write(str(number) + '\n')
+
+
+    test_data = dat[:,:,:, idx]
+    
+    mask = np.ones(dat.shape[-1], dtype=bool)
+    mask[idx] = False
+    train_data = dat[:, :, :, mask]
+
+    np.save(f'./Data/train-exp-doub-pend-{875-90}traj-{0.02}dt-{26}tf-{100}delay', train_data)
+    np.save(f'./Data/test-exp-doub-pend-{90}traj-{0.02}dt-{26}tf-{100}delay', test_data)
+
+    

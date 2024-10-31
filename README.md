@@ -32,7 +32,7 @@ mkdir Data
 ```
 The datasets are saved in here as:
 ```
- Data\{dataset_name}
+ Data\{system_name_from_config.yaml}\{dataset_name_with_hyperparam_values}.npy
 ```
 You can generate your own simulated datasets by using the GenerateDataset class in generate_datasets.py after providing the config path.
 ```
@@ -40,13 +40,14 @@ You can generate your own simulated datasets by using the GenerateDataset class 
     dataset = GenerateDataset(config_yaml_path)
     dataset.collect_data()
 ```
-The experimental datasets are directly provided in this repository as CSVs. You can process and save the datasets in the `Data` dir by running
+The experimental datasets are provided directly in this repository as CSVs. You can process and save the datasets in the `Data` dir by running
 ``` bash
 python -m DelayKoop.Datasets.process_doub_pend
 python -m DelayKoop.Datasets.process_mag_pend
 ```
 You can also download the simulated datasets from the following link:
 - [Data](url)
+
 
 ## Logging
 The logs are saved in the `logs` folder. The logs are saved in the following format:

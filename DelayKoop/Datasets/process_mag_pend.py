@@ -141,3 +141,29 @@ def windowed_trajectory(trajectory, window_size):
 
 if __name__ == '__main__':
     main()
+
+    dat = np.load('./Data/auto-mag-pend-1000traj-0.02dt-10tf-31delay.npy')
+
+    # plot the first trajectory
+    plt.plot(dat[0, 0, :, -1])
+    plt.show()
+
+
+     # Generate a random sample without replacement
+    idx = np.random.choice(range(0, 1000), 100, replace=False)
+
+    #Save the numbers to a text file
+    with open('./DelayKoop/Datasets/Experimental_Data/single_pend_test_indices.txt', 'w') as file:
+       for number in idx:
+           file.write(str(number) + '\n')
+
+
+    test_data = dat[:,:,:, idx]
+    
+    mask = np.ones(dat.shape[-1], dtype=bool)
+    mask[idx] = False
+    train_data = dat[:, :, :, mask]
+
+    np.save(f'./Data/train-mag-pend-{1000-100}traj-{0.02}dt-{10}tf-{31}delay', train_data)
+    np.save(f'./Data/test-mag-pend-{100}traj-{0.02}dt-{10}tf-{31}delay', test_data)
+

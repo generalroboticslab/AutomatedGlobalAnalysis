@@ -33,7 +33,7 @@ class GenerateDataset():
         self.sample_bounds = self.configs['sample_bounds']
 
         # import model function from the model_name from the models file
-        sys.path.append('/home/sammoore/Documents/Latent-Linear-Dynamics/Latent-Linear-Dynamics')
+        sys.path.append(os.getcwd())
         module = importlib.import_module(f"DelayKoop.Datasets.models")
         self.model = getattr(module, self.model_name)
         self.data_dir = self.configs['data_dir']
@@ -181,18 +181,6 @@ class GenerateDataset():
             x0 = [V0, m0, h0, n0]
         elif self.model_name == 'lorenz_96':
             x0 = np.random.normal(0, 1, 40)
-
-        elif self.data_dir == './Data/Pendulum_Sim_Multiple_Basins':
-            x0_unscaled = np.random.beta(.2, .2)
-            basin = np.random.randint(0, 3)
-            if basin == 0:
-                bounds = [-3.14, 0, 3.14, 0]
-            elif basin == 1:
-                bounds = [-3*3.14, 0, -3.15, 0]
-            else:
-                bounds = [3.15, 0, 3*3.14, 0]
-
-            x0 = [(bounds[i+2]- bounds[i])*x0_unscaled + bounds[i] for i in range(2)]
 
         else:
             # sample from beta distribution
