@@ -36,9 +36,9 @@ The datasets are saved in here as:
 ```
 You can generate your own simulated datasets by using the GenerateDataset class in generate_datasets.py after providing the config path.
 ```
-    config_yaml_path = './DelayKoop/Datasets/Configs/lorenz_96_configs.yaml'
-    dataset = GenerateDataset(config_yaml_path)
-    dataset.collect_data()
+config_yaml_path = './DelayKoop/Datasets/Configs/lorenz_96_configs.yaml'
+dataset = GenerateDataset(config_yaml_path)
+dataset.collect_data()
 ```
 The experimental datasets are provided directly in this repository as CSVs. You can process and save the datasets in the `Data` dir by running
 ``` bash
@@ -51,24 +51,24 @@ You can also download the simulated datasets from the following link:
 ## Training
 Once the datasets are saved in the `Data` directory, you can train the models on the desired dataset by adding the data path to the params in `DelayKoop/Experiments/run_all.py`. This file contains the configurations for the experiments in the paper which were trained using a class that performs hyperparameter search with optuna over the annealing params and the learning rate `HyperOpt_StdAnneal_LR`, these experiments can be run using the experiments runner object `Experiment_Runner`. For example, to train the model on the Lorenz-96 dataset:
 ```
-        params = params_default
-        params['n_trials'] = 12
-        params['data_path'] = "./Data/Lorenz_96_Sim/dataset_name"
-        params['latent_dim'] = 14
-        params['n_delays'] = 20
-        params['train_horizon'] = 220
-        params['val_horizon'] = 270
-        params['downsample_fctr'] = 2
-        params['batch_size'] = 128
-        params['main_epochs'] = 100
-        params['n_states'] = 40
-        params['experiment_name'] = '14dim'
-        params['lr'] = 1e-3
+params = params_default
+params['n_trials'] = 12
+params['data_path'] = "./Data/Lorenz_96_Sim/dataset_name"
+params['latent_dim'] = 14
+params['n_delays'] = 20
+params['train_horizon'] = 220
+params['val_horizon'] = 270
+params['downsample_fctr'] = 2
+params['batch_size'] = 128
+params['main_epochs'] = 100
+params['n_states'] = 40
+params['experiment_name'] = '14dim'
+params['lr'] = 1e-3
 
-        runner = ExperimentRunner()
-        exp = HyperOpt_StdAnneal_LR(params=params)
-        runner.add_experiment(exp)
-        runner.run_all()
+runner = ExperimentRunner()
+exp = HyperOpt_StdAnneal_LR(params=params)
+runner.add_experiment(exp)
+runner.run_all()
 ```
 ## Logging
 The logs are saved in the `logs` folder. The logs are saved in the following format:
