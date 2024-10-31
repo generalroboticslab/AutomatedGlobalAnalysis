@@ -8,7 +8,7 @@ Duke University
 ## Overview
 Dynamical systems theory helps scientists and engineers understand changing phenomena in every corner of study. However, applying this theoretical framework to understand real world systems remains challenging. This difficulty arises, in part, from issues in mathematical modeling, nonlinearity, and dimensionality. Our work addresses these challenges with a computational pipeline based on deep learning to find low-dimensional linear models for nonlinear dynamics directly from experimental data. Moreover, these new linear models possess a structure that can be easily interpreted and exploited to perform global analysis of the system’s stability behavior. To find these models, our framework uses time-delay embedding, physics-informed deep autoencoders, and annealing-based regularization. With our method, we discover new, low-dimensional, coordinate representations for a wide range of simulated and previously unstudied experimental dynamical systems across scientific fields. We show that these new coordinate representations, for all studied systems,  achieve accurate long-horizon predictions and automatically uncover intricate invariant sets while providing empirical stability guarantees.
 <div style="text-align: center;">
-  <img src="/Users/Sam/Documents/AutomatedGlobalAnalysis/DelayKoop/linearization.gif" alt="Linearization" width="600">
+  <img src="./DelayKoop/linearization.gif" alt="Linearization" width="600">
 </div>
 
 ## Contents
