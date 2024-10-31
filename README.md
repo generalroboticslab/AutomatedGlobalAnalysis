@@ -49,7 +49,7 @@ You can also download the simulated datasets from the following link:
 - [Data](url)
 
 ## Training
-Once the datasets are saved in the `Data` directory, you can train the models on the desired dataset by adding the data path to the params in `DelayKoop/Experiments/run_all.py`. This file contains the configurations for the experiments in the paper which were trained using a class that performs hyperparameter search with optuna over the annealing params and the learning rate `HyperOpt_StdAnneal_LR`, these experiments can be run using the experiments runner object `Experiment_Runner`. For example, to train the model on the Lorenz-96 dataset:
+Once the datasets are saved in the `Data` directory, you can train the models on the desired dataset by adding the data path to the params in `DelayKoop/Experiments/run_all.py`. This file contains the configurations for the experiments in the paper. They were trained using a class that performs hyperparameter search with optuna over the annealing params and the learning rate `HyperOpt_StdAnneal_LR`, these experiments can be run using the experiments runner object `Experiment_Runner`. For example, to train the model on the Lorenz-96 dataset:
 ```
 params = params_default
 params['n_trials'] = 12
