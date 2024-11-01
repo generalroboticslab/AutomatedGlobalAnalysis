@@ -70,6 +70,11 @@ exp = HyperOpt_StdAnneal_LR(params=params)
 runner.add_experiment(exp)
 runner.run_all()
 ```
+You can directly run the experiments in the `run_all.py` file by running:
+```bash
+python -m DelayKoop.Experiments.run_all
+```
+
 ## Logging
 The logs are saved in the `logs` folder in the following format:
 ```
@@ -90,3 +95,18 @@ Inside each `{dataset_name}_{experiment_name}_{seed}` folder, the contents are:
     \csv
         \main_results.csv # Main results from the Tensorboard logs and the Optuna study database
 ```
+
+## Citation
+If you find this work useful, please cite our paper:
+```arxiv
+@article{moore2024automated,
+  title={Automated Global Analysis of Experimental Dynamics through Low-Dimensional Linear Embeddings},
+  author={Moore, Samuel A. and Mann, Brian P. and Chen, Boyuan},
+  journal={arXiv preprint},
+  year={2024}
+}
+```
+## Acknowledgements
+This work was supported by the National Science Foundation Graduate Research Fellowship, the ARL STRONG program under awards W911NF2320182
+and W911NF2220113, by ARO W911NF2410405, by DARPA FoundSci program under
+award HR00112490372, and DARPA TIAMAT program under award HR00112490419.
