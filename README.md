@@ -6,7 +6,7 @@
 Duke University
 <br>
 [arXiv](https://arxiv.org/abs/2411.00989)
-[Project Page](https://generalroboticslab.com/AutomatedGlobalAnalysis)
+[Project Page](http://generalroboticslab.com/AutomatedGlobalAnalysis)
 [Video](https://www.youtube.com/watch?v=8Q5NQegHz50)
 <br>
 ## Overview
