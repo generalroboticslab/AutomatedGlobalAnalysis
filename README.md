@@ -99,12 +99,15 @@ Inside each `{dataset_name}_{experiment_name}_{seed}` folder, the contents are:
 ## Citation
 If you find this work useful, please cite our paper:
 ```arxiv
-@article{moore2024automated,
-  title={Automated Global Analysis of Experimental Dynamics through Low-Dimensional Linear Embeddings},
-  author={Moore, Samuel A. and Mann, Brian P. and Chen, Boyuan},
-  journal={arXiv preprint},
-  year={2024}
-}
+@misc{moore2024automatedglobalanalysisexperimental,
+      title={Automated Global Analysis of Experimental Dynamics through Low-Dimensional Linear Embeddings}, 
+      author={Samuel A. Moore and Brian P. Mann and Boyuan Chen},
+      year={2024},
+      eprint={2411.00989},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2411.00989}, 
+}  
 ```
 ## Acknowledgements
 This work was supported by the National Science Foundation Graduate Research Fellowship, the ARL STRONG program under awards W911NF2320182
