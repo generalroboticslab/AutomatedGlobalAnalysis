@@ -50,7 +50,7 @@ python -m DelayKoop.Datasets.process_doub_pend
 python -m DelayKoop.Datasets.process_mag_pend
 ```
 You can also download the simulated datasets from the following link:
-- [Data](url)
+- [Data](https://drive.google.com/file/d/1jUXeSG6-Mj40uO88O1zVS5LkpdF5hTC9/view?usp=sharing)
 
 ## Training
 Once the datasets are saved in the `Data` directory, you can train the models on the desired dataset by adding the data path to the params in `DelayKoop/Experiments/run_all.py`. This file contains the configurations for the experiments in the paper. They were trained using a class that performs hyperparameter search with optuna over the annealing params and the learning rate `HyperOpt_StdAnneal_LR`, these experiments can be run using the experiments runner object `Experiment_Runner`. For example, to train the model on the Lorenz-96 dataset:

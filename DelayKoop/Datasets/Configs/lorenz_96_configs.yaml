@@ -4,8 +4,8 @@ delay_type: dt
 delay_steps: 20
 step_size: 0.05
 noise_std: 0
-n_trajectories: 100
+n_trajectories: 400
 trajectory_length: 500
 sim_time: 50
-sample_bounds: [0, 0, 0, 0]
+sample_bounds: [0, 0, 0, 0] # defined in the simulation script
 data_dir: ./Data/Lorenz_96_Sim

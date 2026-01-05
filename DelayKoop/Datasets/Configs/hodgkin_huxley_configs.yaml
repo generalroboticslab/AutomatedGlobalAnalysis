@@ -4,8 +4,9 @@ delay_type: dt
 delay_steps: 51
 step_size: 0.04
 noise_std: 0
-n_trajectories: 50
+n_trajectories: 500
 trajectory_length: 1100
 sim_time: 80
 sample_bounds: [-10, -30, 10, 30]
-data_dir: ./Data/Hodgkin_Huxley_Sim
+data_dir: ./Data/Hodgkin_Huxley_Sim # this simulation has the tendency to freeze due to numerical issues. 
+# If this happens, just re-run the data generation script. or run the the dataset generation for smaller n_trajectories at a time and combine the results.

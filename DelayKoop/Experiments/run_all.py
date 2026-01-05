@@ -384,6 +384,7 @@ if __name__ == "__main__":
         
         ##### ---------- Lorenz 96 Chaotic ---------- #####
 
+        # the dataset generator needs to be modified to generate this dataset
         #params = params_default
         #params['n_trials'] = 12
         #params['sampler'] = 'tpe'
@@ -422,7 +423,7 @@ if __name__ == "__main__":
         params = params_default
         params['n_trials'] = 12
         params['sampler'] = 'tpe'
-        params['data_path'] = "./Data/Hodhux_path"
+        params['data_path'] = "./Data/Hodgkin_Huxley_Sim/hodgkin_huxley_delaytype-dt_delaysteps-51_stepsize-0.04_noise-0_ntraj-500_trajlen-1100.npy"
         params['n_delays'] = 50
         params['gpu_idx'] = 0
         params['train_horizon'] = 450
